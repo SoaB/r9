@@ -4,7 +4,6 @@ import (
 	_ "embed"
 	"log"
 	"r9/es"
-	"r9/sb"
 
 	"github.com/hajimehoshi/ebiten/v2"
 )
@@ -14,7 +13,6 @@ type Game struct {
 }
 
 func (g *Game) Update() error {
-	g.W.Canvas.Clear(sb.ColorBlack)
 	g.W.Run()
 	return nil
 }

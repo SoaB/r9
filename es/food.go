@@ -9,7 +9,7 @@ type Foods struct {
 func NewFoods(num int) *Foods {
 	fds := make([]sb.Vec2, 0)
 	for i := 0; i < num; i++ {
-		fds = append(fds, sb.Vec2{sb.RandFloat64n(Width), sb.RandFloat64n(Height)})
+		fds = append(fds, sb.Vec2{sb.RandFloat64n(Width - 8), sb.RandFloat64n(Height - 8)})
 	}
 	return &Foods{fds}
 }
@@ -36,6 +36,6 @@ func (f *Foods) Run(canvas *sb.Canvas) {
 	}
 	// There's a small chance food will appear randomly.
 	if sb.RandFloat64() < 0.001 {
-		f.Add(sb.Vec2{sb.RandFloat64n(Width), sb.RandFloat64n(Height)})
+		f.Add(sb.Vec2{sb.RandFloat64n(Width - 8), sb.RandFloat64n(Height - 8)})
 	}
 }

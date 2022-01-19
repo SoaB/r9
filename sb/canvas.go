@@ -86,17 +86,8 @@ func intAbs(n int) int {
 	return n
 }
 func (c *Canvas) DrawRect(x, y, w, h int, col Rgba) {
-	bufStart := c.BufOffset(x, y)
-	widthOffset := c.Stride - w*4
-	for i := 0; i < h; i++ {
-		for j := 0; j < w; j++ {
-			c.Buf[bufStart] = col.R
-			c.Buf[bufStart+1] = col.G
-			c.Buf[bufStart+2] = col.B
-			c.Buf[bufStart+3] = col.A
-			bufStart += 4
-		}
-		bufStart += widthOffset
+	for i := y; i < y+h; i++ {
+		c.Bresenham(x, i, x+w, i, col)
 	}
 }
 

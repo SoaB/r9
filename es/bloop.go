@@ -39,7 +39,7 @@ func (b *Bloop) Eat(f *Foods) {
 }
 
 func (b *Bloop) Reproduce() *Bloop {
-	if sb.RandFloat64() < 0.001 {
+	if sb.RandFloat64() < 0.0007 {
 		childDna := b.Dna.Clone()
 		childDna.Mutate(0.01)
 		return NewBloop(b.Location, childDna)
